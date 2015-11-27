@@ -12,12 +12,12 @@ from fabtools.vagrant import vagrant
 from deployment_tools.generate_postactivate import make_postactivate_file
 
 # github repo used for deploying the site
-REPO_URL = 'git@bitbucket.org:funkweb/funkytime.git'
+REPO_URL = ''
 
-PYVENV = 'virtualenv'         # using python 2.7 for virtual environments
+PYVENV = 'pyvenv'         # using python 2.7 for virtual environments
 LINUXGROUP = 'www'            # linux user group on the webserver
 WEBSERVER_ROOT = '/srv'       # root folder for all websites on the webserver
-SITE_NAME = 'funkytime.no'    # the base host name for this project
+SITE_NAME = 'prodsys.no'    # the base host name for this project
 POSTGRESQL_USER = 'postgres'  # username for the postgresql database root user.
 
 env.site_url = 'vagrant.' + SITE_NAME
@@ -133,7 +133,7 @@ def _get_configs(
     config_folder = config_folder or dirname(__file__) + '/deployment_tools'
 
     configs = {
-        # 'service': { # name of program or service that need configuration files.
+        # 'service': # name of program or service that need configuration files.
         # 'template': # template for configuration file
         # 'filename': # what to call the config file made from template
         # 'target folder': # where to put the config file
