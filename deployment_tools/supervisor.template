@@ -1,0 +1,43 @@
+; ====================================================================
+;  Supervisor configuration
+;  symlink this to this location:
+;  /etc/supervisor/conf.d/USERNAME.conf
+; ====================================================================
+
+[group:SITEURL]
+programs       = SITEURL-gunicorn, SITEURL-celery-worker, SITEURL-celery-beat
+
+; ====================================================================
+[program:SITEURL-gunicorn]
+command        = /srv/SITEURL/bin/USERNAME.sh gunicorn
+user           = USERNAME
+autostart      = true
+stopasgroup    = true
+startsecs      = 5
+stdout_logfile = /srv/SITEURL/logs/gunicorn.log
+stderr_logfile = /srv/SITEURL/logs/gunicorn.log
+priority       = 999
+
+; ====================================================================
+[program:SITEURL-celery-worker]
+command        = /srv/SITEURL/bin/USERNAME.sh celery-worker
+user           = USERNAME
+autostart      = true
+stopasgroup    = true
+startsecs      = 5
+stdout_logfile = /srv/SITEURL/logs/celery.log
+stderr_logfile = /srv/SITEURL/logs/celery.log
+stopwaitsecs   = 60
+priority       = 998
+
+; ====================================================================
+[program:SITEURL-celery-beat]
+command        = /srv/SITEURL/bin/USERNAME.sh celery-beat
+user           = USERNAME
+autostart      = true
+stopasgroup    = true
+startsecs      = 5
+stdout_logfile = /srv/SITEURL/logs/celery.log
+stderr_logfile = /srv/SITEURL/logs/celery.log
+directory      = /srv/SITEURL/source/
+priority       = 999

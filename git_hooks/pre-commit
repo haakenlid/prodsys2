@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "run python tests"
+py.test
+echo "update django url routing json dump"
+./scripts/urls-to-json.sh
+echo "update database model schema graph"
+./scripts/graph-models.sh
+git add ./*models.png
+git add ./**/api-urls.json
+# echo "update translations"
+# ./scripts/translation.sh

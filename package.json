@@ -1,0 +1,18 @@
+{
+  "name": "prodsys2",
+  "version": "0.1",
+  "description": "Replacement for legacy prodsys",
+  "homepage": "http://universitas.no",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/haakenlid/prodsys2"
+  },
+  "license": "UNLICENCED",
+  "contributors": [
+    "Håken Lid <haakenlid@gmail.com> (https://github.com/haakenlid)"
+  ],
+  "scripts": {
+  },
+  "devDependencies": {
+  }
+}
